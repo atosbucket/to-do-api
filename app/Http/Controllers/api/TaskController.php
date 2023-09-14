@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Http\Request;
 use App\Models\Todo;
 
 class TaskController extends BaseController {
@@ -22,7 +23,7 @@ class TaskController extends BaseController {
         $item->update([
             "name" => $request->get('name')
         ]);
-        return resposne()->json($item);
+        return response()->json($item);
     }
 
     public function destroy($id) {
@@ -30,6 +31,4 @@ class TaskController extends BaseController {
         $item->delete();
         return response()->json(['message' => 'Item deleted!']);
     }
-
-
 }
